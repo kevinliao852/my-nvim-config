@@ -52,6 +52,7 @@ require("packer").startup(function()
 	use("tpope/vim-surround")
 	use("vim-airline/vim-airline")
 	use("vim-airline/vim-airline-themes")
+	use("easymotion/vim-easymotion")
 	use("neovim/nvim-lspconfig")
 	use({
 		"nvim-treesitter/nvim-treesitter",
