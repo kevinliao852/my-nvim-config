@@ -24,6 +24,8 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+keymap("n", "<space>gd", ":Gitsigns diffthis HEAD~1<CR>", opts)
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -171,7 +173,7 @@ require("gitsigns").setup({
 	},
 })
 
---
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -236,6 +238,12 @@ vim.g.rainbow_active = 1
 vim.cmd("colorscheme ghdark")
 vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#264348")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#123123")
+
+-- window resize, using arrow keys
+vim.cmd("nnoremap <silent> <Up>    :<C-u>resize -2<CR>")
+vim.cmd("nnoremap <silent> <Down>  :<C-u>resize +2<CR>")
+vim.cmd("nnoremap <silent> <Left>  :<C-u>vertical resize -4<CR>")
+vim.cmd("nnoremap <silent> <Right> :<C-u>vertical resize +4<CR>")
 vim.g.airline_theme = "tomorrow"
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
