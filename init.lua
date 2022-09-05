@@ -33,6 +33,10 @@ keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 keymap("n", "<space>gd", ":Gitsigns diffthis HEAD~1<CR>", opts)
 keymap("n", "zgn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
 keymap("v", "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+keymap("n", "<space>aa", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "<space>at", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "<space>aw", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+keymap("n", "<space>as", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -63,6 +67,8 @@ require("packer").startup(function()
 	use("vim-airline/vim-airline")
 	use("vim-airline/vim-airline-themes")
 	use("easymotion/vim-easymotion")
+	use("nvim-lua/plenary.nvim")
+	use("ThePrimeagen/harpoon")
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
@@ -74,6 +80,7 @@ require("packer").startup(function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+	use("nvim-treesitter/nvim-treesitter-context")
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
