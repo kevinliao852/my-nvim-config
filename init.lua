@@ -18,6 +18,11 @@ local opts = { noremap = true, silent = true }
 local opts_noslient = { noremap = true }
 local bufopts = { noremap = true, silent = true }
 
+keymap("n", "<leader>c", ":q<CR>", opts)
+keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("i", "<C-l>", "<Esc>", opts)
+keymap("v", "<C-l>", "<Esc>", opts)
+
 keymap("n", "<C-t>", ":NERDTreeToggle<CR>", opts)
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
@@ -26,6 +31,8 @@ keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 keymap("n", "<space>gd", ":Gitsigns diffthis HEAD~1<CR>", opts)
+keymap("n", "zgn", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
+keymap("v", "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -52,6 +59,7 @@ require("packer").startup(function()
 	use("preservim/nerdtree")
 	use("tpope/vim-commentary")
 	use("tpope/vim-surround")
+	use("tpope/vim-fugitive")
 	use("vim-airline/vim-airline")
 	use("vim-airline/vim-airline-themes")
 	use("easymotion/vim-easymotion")
@@ -99,6 +107,7 @@ require("null-ls").setup({
 
 -- set lsp
 require("lspconfig").pyright.setup({})
+require("lspconfig").tailwindcss.setup({})
 
 -- set treesitter
 require("nvim-treesitter.configs").setup({
@@ -173,7 +182,6 @@ require("gitsigns").setup({
 	},
 })
 
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -186,6 +194,12 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		-- on_attach = my_custom_on_attach,
 		capabilities = capabilities,
+		handlers = {
+			["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
+				-- tailwindcss lang server waits for this repsonse before providing hover
+				vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
+			end,
+		},
 	})
 end
 
@@ -236,8 +250,8 @@ cmp.setup({
 -- set details
 vim.g.rainbow_active = 1
 vim.cmd("colorscheme ghdark")
-vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#264348")
-vim.cmd("hi GitSignsCurrentLineBlame guifg=#123123")
+vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
+vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 
 -- window resize, using arrow keys
 vim.cmd("nnoremap <silent> <Up>    :<C-u>resize -2<CR>")
@@ -245,6 +259,7 @@ vim.cmd("nnoremap <silent> <Down>  :<C-u>resize +2<CR>")
 vim.cmd("nnoremap <silent> <Left>  :<C-u>vertical resize -4<CR>")
 vim.cmd("nnoremap <silent> <Right> :<C-u>vertical resize +4<CR>")
 vim.g.airline_theme = "tomorrow"
+vim.g.python3_host_prog = "/usr/local/bin/python3"
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
 	group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
