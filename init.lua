@@ -37,6 +37,7 @@ keymap("n", "<space>aa", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts
 keymap("n", "<space>at", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 keymap("n", "<space>aw", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap("n", "<space>as", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+keymap("n", "<space>`", ":ContextToggle<cr>", opts)
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -57,6 +58,7 @@ end, bufopts)
 -- set plugins
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
+	use("wellle/context.vim")
 	use("wojciechkepka/vim-github-dark")
 	use("luochen1990/rainbow")
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -80,7 +82,7 @@ require("packer").startup(function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
-	use("nvim-treesitter/nvim-treesitter-context")
+	-- use("nvim-treesitter/nvim-treesitter-context")
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
@@ -115,6 +117,12 @@ require("null-ls").setup({
 -- set lsp
 require("lspconfig").pyright.setup({})
 require("lspconfig").tailwindcss.setup({})
+require("lspconfig").tsserver.setup({
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end,
+})
 
 -- set treesitter
 require("nvim-treesitter.configs").setup({
