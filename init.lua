@@ -122,12 +122,6 @@ require("null-ls").setup({
 -- set lsp
 require("lspconfig").pyright.setup({})
 require("lspconfig").tailwindcss.setup({})
-require("lspconfig").tsserver.setup({
-	on_attach = function(client)
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
-	end,
-})
 
 -- set treesitter
 require("nvim-treesitter.configs").setup({
@@ -222,6 +216,13 @@ for _, lsp in ipairs(servers) do
 		},
 	})
 end
+
+require("lspconfig").tsserver.setup({
+	on_attach = function(client)
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end,
+})
 
 require("lspconfig").gopls.setup({
 	on_attach = function(client)
