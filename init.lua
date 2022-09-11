@@ -13,7 +13,6 @@ vim.g.mapleader = ";"
 vim.g.undotree_WindowLayout = 4
 vim.opt.termguicolors = true
 
-
 -- set key bindings
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -112,8 +111,10 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.formatting.prettier,
 		require("null-ls").builtins.formatting.autopep8,
+		require("null-ls").builtins.formatting.gofmt,
 		require("null-ls").builtins.diagnostics.eslint,
 		require("null-ls").builtins.diagnostics.pylint,
+		require("null-ls").builtins.diagnostics.golangci_lint,
 		require("null-ls").builtins.completion.spell,
 	},
 })
@@ -221,6 +222,13 @@ for _, lsp in ipairs(servers) do
 		},
 	})
 end
+
+require("lspconfig").gopls.setup({
+	on_attach = function(client)
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end,
+})
 
 -- luasnip setup
 local luasnip = require("luasnip")
