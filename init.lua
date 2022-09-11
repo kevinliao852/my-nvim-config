@@ -10,7 +10,9 @@ vim.expandtab = true
 vim.o.cursorline = true
 vim.o.spell = true
 vim.g.mapleader = ";"
+vim.g.undotree_WindowLayout = 4
 vim.opt.termguicolors = true
+
 
 -- set key bindings
 local keymap = vim.api.nvim_set_keymap
@@ -23,6 +25,7 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("i", "<C-l>", "<Esc>", opts)
 keymap("v", "<C-l>", "<Esc>", opts)
 
+keymap("n", "U", ":UndotreeToggle<CR>", opts)
 keymap("n", "<C-t>", ":NERDTreeToggle<CR>", opts)
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
@@ -58,6 +61,7 @@ end, bufopts)
 -- set plugins
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
+	use("mbbill/undotree")
 	use("wellle/context.vim")
 	use("wojciechkepka/vim-github-dark")
 	use("luochen1990/rainbow")
