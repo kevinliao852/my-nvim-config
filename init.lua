@@ -118,10 +118,10 @@ require("null-ls").setup({
 require("lspconfig").pyright.setup({})
 require("lspconfig").tailwindcss.setup({})
 require("lspconfig").tsserver.setup({
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-    end,
+	on_attach = function(client)
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end,
 })
 
 -- set treesitter
