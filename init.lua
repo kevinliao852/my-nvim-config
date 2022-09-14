@@ -1,4 +1,6 @@
 -- set meta
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 vim.o.term = "xterm-256color"
 vim.o.relativenumber = true
 vim.o.number = true
@@ -25,7 +27,8 @@ keymap("i", "<C-l>", "<Esc>", opts)
 keymap("v", "<C-l>", "<Esc>", opts)
 
 keymap("n", "U", ":UndotreeToggle<CR>", opts)
-keymap("n", "<C-t>", ":NERDTreeToggle<CR>", opts)
+keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
+keymap("n", "<C-t>", ":NvimTreeToggle<CR>", opts)
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
@@ -40,6 +43,8 @@ keymap("n", "<space>at", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>
 keymap("n", "<space>aw", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap("n", "<space>as", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 keymap("n", "<space>`", ":ContextToggle<cr>", opts)
+keymap("n", "<space><Tab>", ":SymbolsOutline<cr>", opts)
+keymap("n", "<leader>g", ":G<cr>", opts)
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -59,6 +64,8 @@ end, bufopts)
 
 -- set plugins
 require("packer").startup(function()
+	use("vim-ctrlspace/vim-ctrlspace")
+	use("simrat39/symbols-outline.nvim")
 	use("wbthomason/packer.nvim")
 	use("mbbill/undotree")
 	use("wellle/context.vim")
@@ -79,6 +86,13 @@ require("packer").startup(function()
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+		},
+		tag = "nightly", -- optional, updated every week. (see issue #1193)
+	})
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -284,11 +298,84 @@ if vim.fn.has("persistent_undo") then
 	vim.opt.undofile = true
 end
 
+-- setup icons
+require("nvim-web-devicons").get_icons(filename, extension, { default = true })
+require("nvim-web-devicons").has_loaded()
+
+local opts = {
+	highlight_hovered_item = true,
+	show_guides = true,
+	auto_preview = false,
+	position = "right",
+	relative_width = true,
+	width = 25,
+	auto_close = false,
+	show_numbers = false,
+	show_relative_numbers = false,
+	show_symbol_details = true,
+	preview_bg_highlight = "Pmenu",
+	autofold_depth = nil,
+	auto_unfold_hover = true,
+	fold_markers = { "", "" },
+	wrap = false,
+	keymaps = { -- These keymaps can be a string or a table for multiple keys
+		close = { "<Esc>", "q" },
+		goto_location = "<Cr>",
+		focus_location = "o",
+		hover_symbol = "<C-space>",
+		toggle_preview = "K",
+		rename_symbol = "r",
+		code_actions = "a",
+		fold = "h",
+		unfold = "l",
+		fold_all = "W",
+		unfold_all = "E",
+		fold_reset = "R",
+	},
+	lsp_blacklist = {},
+	symbol_blacklist = {},
+	symbols = {
+		File = { icon = "", hl = "TSURI" },
+		Module = { icon = "", hl = "TSNamespace" },
+		Namespace = { icon = "", hl = "TSNamespace" },
+		Package = { icon = "", hl = "TSNamespace" },
+		Class = { icon = "𝓒", hl = "TSType" },
+		Method = { icon = "ƒ", hl = "TSMethod" },
+		Property = { icon = "", hl = "TSMethod" },
+		Field = { icon = "", hl = "TSField" },
+		Constructor = { icon = "", hl = "TSConstructor" },
+		Enum = { icon = "ℰ", hl = "TSType" },
+		Interface = { icon = "ﰮ", hl = "TSType" },
+		Function = { icon = "", hl = "TSFunction" },
+		Variable = { icon = "", hl = "TSConstant" },
+		Constant = { icon = "", hl = "TSConstant" },
+		String = { icon = "𝓐", hl = "TSString" },
+		Number = { icon = "#", hl = "TSNumber" },
+		Boolean = { icon = "⊨", hl = "TSBoolean" },
+		Array = { icon = "", hl = "TSConstant" },
+		Object = { icon = "⦿", hl = "TSType" },
+		Key = { icon = "🔐", hl = "TSType" },
+		Null = { icon = "NULL", hl = "TSType" },
+		EnumMember = { icon = "", hl = "TSField" },
+		Struct = { icon = "𝓢", hl = "TSType" },
+		Event = { icon = "🗲", hl = "TSType" },
+		Operator = { icon = "+", hl = "TSOperator" },
+		TypeParameter = { icon = "𝙏", hl = "TSParameter" },
+	},
+}
+
+require("symbols-outline").setup(opts)
+
+require("nvim-tree").setup()
+
 -- set details
 vim.g.rainbow_active = 1
 vim.cmd("colorscheme ghdark")
 vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
+vim.cmd("set encoding=utf-8")
+vim.cmd("set nocompatible")
+vim.cmd("set encoding")
 
 -- window resize, using arrow keys
 vim.cmd("nnoremap <silent> <Up>    :<C-u>resize -2<CR>")
@@ -308,17 +395,17 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
 
 -- ======== Commands ========
 -- write & quit
-vim.cmd [[
+vim.cmd([[
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
-]]
+]])
 -- quit all
-vim.cmd [[
+vim.cmd([[
 cnoreabbrev Qa qa
 cnoreabbrev QA qa
-]]
+]])
 -- write & quit all
-vim.cmd [[
+vim.cmd([[
 cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
-]]
+]])
