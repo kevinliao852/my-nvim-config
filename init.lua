@@ -275,6 +275,15 @@ cmp.setup({
 	},
 })
 
+-- undo settings
+
+local CACHE_DIR = vim.env.HOME .. "/.cache/nvim"
+
+if vim.fn.has("persistent_undo") then
+	vim.opt.undodir = CACHE_DIR .. "/undofiles/"
+	vim.opt.undofile = true
+end
+
 -- set details
 vim.g.rainbow_active = 1
 vim.cmd("colorscheme ghdark")
@@ -296,3 +305,20 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
 		-- vim.opts.foldexpr       = 'nvim_treesitter#foldexpr()'
 	end,
 })
+
+-- ======== Commands ========
+-- write & quit
+vim.cmd [[
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+]]
+-- quit all
+vim.cmd [[
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
+]]
+-- write & quit all
+vim.cmd [[
+cnoreabbrev Wqa wqa
+cnoreabbrev WQa wqa
+]]
