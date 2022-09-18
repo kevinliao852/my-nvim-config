@@ -71,6 +71,7 @@ end, bufopts)
 -- set plugins
 require("packer").startup(function()
 	use("vim-ctrlspace/vim-ctrlspace")
+	use("tami5/lspsaga.nvim")
 	use("simrat39/symbols-outline.nvim")
 	use("wbthomason/packer.nvim")
 	use("mbbill/undotree")
@@ -307,7 +308,6 @@ end
 -- setup icons
 require("nvim-web-devicons").get_icons(filename, extension, { default = true })
 require("nvim-web-devicons").has_loaded()
-
 local opts = {
 	highlight_hovered_item = true,
 	show_guides = true,
@@ -397,6 +397,19 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
 		-- vim.opts.foldmethod     = 'expr'
 		-- vim.opts.foldexpr       = 'nvim_treesitter#foldexpr()'
 	end,
+})
+
+-- lspsaga
+local lspsaga = require("lspsaga")
+
+lspsaga.setup({
+	error_sign = "",
+	warn_sign = "",
+	hint_sign = "",
+	infor_sign = "",
+	diagnostic_header_icon = "   ",
+	code_action_icon = " ",
+	border_style = "round",
 })
 
 -- ======== Commands ========
