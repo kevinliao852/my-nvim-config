@@ -70,6 +70,7 @@ end, bufopts)
 
 -- set plugins
 require("packer").startup(function()
+	use("folke/tokyonight.nvim")
 	use("vim-ctrlspace/vim-ctrlspace")
 	use("tami5/lspsaga.nvim")
 	use("simrat39/symbols-outline.nvim")
@@ -377,7 +378,7 @@ require("symbols-outline").setup(opts)
 
 -- set details
 vim.g.rainbow_active = 1
-vim.cmd("colorscheme ghdark")
+vim.cmd("colorscheme tokyonight-night")
 vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 vim.cmd("set encoding=utf-8")
