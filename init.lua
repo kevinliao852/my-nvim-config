@@ -75,6 +75,7 @@ end, bufopts)
 
 -- set plugins
 require("packer").startup(function()
+	use("terryma/vim-multiple-cursors")
 	use("onsails/lspkind.nvim")
 	use("folke/tokyonight.nvim")
 	use("vim-ctrlspace/vim-ctrlspace")
