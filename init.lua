@@ -52,6 +52,11 @@ keymap("n", "<space>`", ":ContextToggle<cr>", opts)
 keymap("n", "<space><Tab>", ":SymbolsOutline<cr>", opts)
 keymap("n", "<leader>g", ":G<cr>", opts)
 
+keymap("n", "<leader>h", "<cmd>vsplit<CR>", opts)
+keymap("n", "<leader>j", "<cmd>split<Bar>wincmd j<CR>", opts)
+keymap("n", "<leader>k", "<cmd>split<CR>", opts)
+keymap("n", "<leader>l", "<cmd>vsplit<Bar>wincmd l<CR>", opts)
+
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
