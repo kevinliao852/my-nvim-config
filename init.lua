@@ -29,7 +29,7 @@ keymap("n", "<Esc><Esc>", ":noh<CR>", opts)
 
 keymap("n", "U", ":UndotreeToggle<CR>", opts)
 keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
-keymap("n", "<C-t>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-t>", ":NeoTreeFocusToggle<CR>", opts)
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
@@ -94,13 +94,6 @@ require("packer").startup(function()
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
-		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
-	})
-	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
@@ -123,6 +116,16 @@ require("packer").startup(function()
 		config = function()
 			require("gitsigns").setup()
 		end,
+	})
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
 	})
 end)
 
@@ -371,8 +374,6 @@ local opts = {
 }
 
 require("symbols-outline").setup(opts)
-
-require("nvim-tree").setup()
 
 -- set details
 vim.g.rainbow_active = 1
