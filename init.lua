@@ -70,6 +70,7 @@ end, bufopts)
 
 -- set plugins
 require("packer").startup(function()
+	use("onsails/lspkind.nvim")
 	use("folke/tokyonight.nvim")
 	use("vim-ctrlspace/vim-ctrlspace")
 	use("tami5/lspsaga.nvim")
@@ -425,6 +426,17 @@ lspsaga.setup({
 	diagnostic_header_icon = "   ",
 	code_action_icon = " ",
 	border_style = "round",
+})
+
+-- lspkind
+local lspkind = require("lspkind")
+cmp.setup({
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol",
+			maxwidth = 50,
+		}),
+	},
 })
 
 -- ======== Commands ========
