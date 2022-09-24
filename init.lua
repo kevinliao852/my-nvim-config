@@ -142,7 +142,9 @@ require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.formatting.prettier,
-		require("null-ls").builtins.formatting.black,
+		require("null-ls").builtins.formatting.black.with({
+			extra_args = { "-S" },
+		}),
 		require("null-ls").builtins.formatting.gofmt,
 		require("null-ls").builtins.diagnostics.eslint,
 		require("null-ls").builtins.diagnostics.pylint,
@@ -385,6 +387,7 @@ require("symbols-outline").setup(opts)
 
 -- set details
 vim.g.rainbow_active = 1
+vim.cmd("set scrolloff=2")
 vim.cmd("colorscheme tokyonight-night")
 vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
