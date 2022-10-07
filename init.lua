@@ -40,7 +40,6 @@ keymap("n", "<space>gd", ":Gitsigns diffthis HEAD~1<CR>", opts)
 keymap("n", "<space>gk", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<space>gj", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<space>gs", ":Gitsigns stage_hunk<CR>", opts)
-keymap("n", "<space>gp", ":Gitsigns preview_hunk<CR>", opts)
 keymap("n", "<space>gu", ":Gitsigns undo_stage_hunk<CR>", opts)
 keymap("n", "zj", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
 keymap("n", "zk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", opts)
@@ -67,9 +66,9 @@ vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
 vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
+vim.keymap.set("n", "zi", vim.lsp.buf.code_action, bufopts)
 vim.keymap.set("n", "<space>wl", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, bufopts)
@@ -148,6 +147,7 @@ require("null-ls").setup({
 		}),
 		require("null-ls").builtins.formatting.gofmt,
 		require("null-ls").builtins.diagnostics.eslint,
+		require("null-ls").builtins.code_actions.eslint,
 		require("null-ls").builtins.diagnostics.pylint,
 		require("null-ls").builtins.diagnostics.golangci_lint,
 		require("null-ls").builtins.completion.spell,
