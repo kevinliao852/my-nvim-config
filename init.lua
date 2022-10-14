@@ -26,6 +26,8 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("i", "<C-l>", "<Esc>", opts)
 keymap("v", "<C-l>", "<Esc>", opts)
 keymap("n", "<Esc><Esc>", ":noh<CR>", opts)
+keymap("n", "<space>[",":bprev<CR>", opts)
+keymap("n", "<space>]",":bnext<CR>", opts)
 
 keymap("n", "U", ":UndotreeToggle<CR>", opts)
 keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
