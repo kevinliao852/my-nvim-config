@@ -37,7 +37,7 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+keymap("n", "zo", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 keymap("n", "<space>gd", ":Gitsigns diffthis HEAD~1<CR>", opts)
 keymap("n", "<space>gk", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<space>gj", ":Gitsigns next_hunk<CR>", opts)
@@ -61,7 +61,7 @@ keymap("n", "<leader>l", "<cmd>vsplit<Bar>wincmd l<CR>", opts)
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
 vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
@@ -69,11 +69,16 @@ vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
+vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
 vim.keymap.set("n", "zi", vim.lsp.buf.code_action, bufopts)
 vim.keymap.set("n", "<space>wl", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, bufopts)
+
+-- legacy
+
+-- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+-- keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
 -- set plugins
 require("packer").startup(function()
@@ -123,9 +128,6 @@ require("packer").startup(function()
 	})
 	use({
 		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
 	})
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
@@ -212,7 +214,7 @@ require("gitsigns").setup({
 	current_line_blame_opts = {
 		virt_text = true,
 		virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-		delay = 500,
+		delay = 100,
 		ignore_whitespace = false,
 	},
 	current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
@@ -235,7 +237,7 @@ require("gitsigns").setup({
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local lspconfig = require("lspconfig")
 
@@ -397,6 +399,7 @@ vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 vim.cmd("set encoding=utf-8")
 vim.cmd("set nocompatible")
 vim.cmd("set encoding")
+-- vim.cmd("autocmd BufRead * Gitsigns toggle_current_line_blame true")
 
 -- window resize, using arrow keys
 vim.cmd("nnoremap <silent> <Up>    :<C-u>resize -2<CR>")
@@ -431,6 +434,13 @@ vim.g["airline#extensions#tabline#fnametruncate"] = 12
 local lspsaga = require("lspsaga")
 
 lspsaga.setup({
+	use_saga_diagnostic_sign = true,
+	code_action_prompt = {
+		enable = true,
+		sign = true,
+		sign_priority = 40,
+		virtual_text = true,
+	},
 	error_sign = "",
 	warn_sign = "",
 	hint_sign = "",
