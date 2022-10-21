@@ -14,6 +14,7 @@ vim.o.spell = true
 vim.g.mapleader = ";"
 vim.g.undotree_WindowLayout = 4
 vim.opt.termguicolors = true
+vim.opt.mouse = ""
 
 -- set key bindings
 local keymap = vim.api.nvim_set_keymap
@@ -165,8 +166,8 @@ require("lspconfig").tailwindcss.setup({})
 -- set treesitter
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
-	ensure_installed = { "python", "lua", "typescript" },
-	ignore_install = { "javascript" },
+	ensure_installed = { "python", "lua", "typescript", "javascript" },
+	-- ignore_install = { "javascript" },
 	sync_install = false,
 	highlight = {
 		enable = true,
