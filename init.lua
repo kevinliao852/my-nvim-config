@@ -32,7 +32,6 @@ keymap("n", "<space>]", ":bnext<CR>", opts)
 
 keymap("n", "U", ":UndotreeToggle<CR>", opts)
 keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
-keymap("n", "<C-t>", ":NeoTreeFocusToggle<CR>", opts)
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
@@ -137,10 +136,13 @@ require("packer").startup(function()
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 			"nvim-lua/plenary.nvim",
 			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
+			"muniftanjim/nui.nvim",
 		},
 	})
 end)
+
+
+require("lua.neotree")
 
 -- setup null-ls
 require("null-ls").setup({
