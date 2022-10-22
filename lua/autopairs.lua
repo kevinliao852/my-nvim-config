@@ -4,6 +4,8 @@ if not status_ok then
 	return
 end
 
+require("nvim-autopairs").setup({})
+
 npairs.setup({
 	fast_wrap = {
 		map = "<A-e>",

@@ -24,6 +24,9 @@ require("packer").startup(function()
 	use("hrsh7th/cmp-nvim-lsp")
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
+	use("windwp/nvim-autopairs")
+	use("BurntSushi/ripgrep")
+	use("kyazdani42/nvim-web-devicons")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -31,25 +34,13 @@ require("packer").startup(function()
 		end,
 	})
 	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
-	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
-		requires = { { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" } },
 	})
 	use("lewis6991/gitsigns.nvim")
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-			"muniftanjim/nui.nvim",
-		},
+		requires = "muniftanjim/nui.nvim",
 	})
 end)
