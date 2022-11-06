@@ -5,7 +5,6 @@ require("plugins")
 
 -- lsp related
 require("lsp")
-require("lspsaga")
 require("nullls")
 require("treesitter")
 
