@@ -9,7 +9,7 @@ require("nullls")
 require("treesitter")
 
 -- tools
-require("gitsigns")
+require("gitsigns_p")
 require("autopairs")
 require("undotree")
 require("webdevicons")
