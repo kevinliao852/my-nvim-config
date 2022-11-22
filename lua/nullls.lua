@@ -8,6 +8,7 @@ nullls.setup({
 	sources = {
 		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.formatting.prettierd,
+		require("null-ls").builtins.formatting.sql_formatter,
 		require("null-ls").builtins.formatting.black.with({
 			extra_args = { "-S" },
 		}),
@@ -19,4 +20,3 @@ nullls.setup({
 		require("null-ls").builtins.completion.spell,
 	},
 })
-
