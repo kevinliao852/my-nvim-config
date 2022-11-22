@@ -14,6 +14,7 @@ require("autopairs")
 require("undotree")
 require("webdevicons")
 require("neotree")
+require("nvim-scrollbar")
 
 -- cmd
 require("cmd")
