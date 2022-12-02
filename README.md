@@ -20,3 +20,9 @@ apt install clangd
 ```
 apt install clang-format
 ```
+
+## Add C++ Linter
+
+```
+pip install cpplint
+```
