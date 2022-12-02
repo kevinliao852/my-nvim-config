@@ -5,11 +5,12 @@ require("scrollbar").setup({
 		color = colors.bg_highlight,
 	},
 	marks = {
-		Search = { color = colors.orange },
+		Cursor = { text = "" },
 		Error = { color = colors.error },
-		Warn = { color = colors.warning },
-		Info = { color = colors.info },
 		Hint = { color = colors.hint },
+		Info = { color = colors.info },
 		Misc = { color = colors.purple },
+		Search = { color = colors.orange },
+		Warn = { color = colors.warning },
 	},
 })
