@@ -13,6 +13,7 @@ nullls.setup({
 			extra_args = { "-S" },
 		}),
 		require("null-ls").builtins.formatting.gofmt,
+		require("null-ls").builtins.formatting.clang_format,
 		require("null-ls").builtins.diagnostics.eslint,
 		require("null-ls").builtins.code_actions.eslint,
 		require("null-ls").builtins.diagnostics.pylint,
