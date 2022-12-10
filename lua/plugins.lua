@@ -28,9 +28,7 @@ require("packer").startup(function()
 	use("windwp/nvim-autopairs")
 	use("BurntSushi/ripgrep")
 	use("kyazdani42/nvim-web-devicons")
-	require("packer").startup(function()
-		use("lukas-reineke/indent-blankline.nvim")
-	end)
+	use("lukas-reineke/indent-blankline.nvim")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
