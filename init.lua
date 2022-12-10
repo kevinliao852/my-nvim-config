@@ -4,6 +4,7 @@ require("settings")
 require("plugins")
 
 -- lsp related
+require("navic")
 require("lsp")
 require("nullls")
 require("treesitter")

@@ -46,4 +46,9 @@ require("packer").startup(function()
 		branch = "v2.x",
 		requires = "muniftanjim/nui.nvim",
 	})
+
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
 end)

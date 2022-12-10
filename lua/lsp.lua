@@ -3,12 +3,15 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local lspconfig = require("lspconfig")
+local navic = require("nvim-navic")
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "gopls", "tailwindcss" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
-		-- on_attach = my_custom_on_attach,
+		on_attach = function(client, bufnr)
+			navic.attach(client, bufnr)
+		end,
 		capabilities = capabilities,
 		handlers = {
 			["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
@@ -19,19 +22,26 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lspconfig").jdtls.setup({ cmd = { "jdtls" } })
+require("lspconfig").jdtls.setup({
+	on_attach = function(client, bufnr)
+		navic.attach(client, bufnr)
+	end,
+	cmd = { "jdtls" },
+})
 
 require("lspconfig").tsserver.setup({
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
+		navic.attach(client, bufnr)
 	end,
 })
 
 require("lspconfig").gopls.setup({
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
+		navic.attach(client, bufnr)
 	end,
 })
 
