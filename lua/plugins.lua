@@ -26,11 +26,12 @@ require("packer").startup(function()
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
 	use("windwp/nvim-autopairs")
-	use("BurntSushi/ripgrep")
 	use("kyazdani42/nvim-web-devicons")
 	use("lukas-reineke/indent-blankline.nvim")
+
 	use({
 		"nvim-treesitter/nvim-treesitter",
+		"BurntSushi/ripgrep", -- for live_grep
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
