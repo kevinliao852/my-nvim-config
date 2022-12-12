@@ -6,6 +6,7 @@ vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 vim.cmd("set encoding=utf-8")
 vim.cmd("set nocompatible")
 vim.cmd("set encoding")
+vim.cmd("set spelloptions=camel")
 -- vim.cmd("autocmd BufRead * Gitsigns toggle_current_line_blame true")
 
 -- window resize, using arrow keys
