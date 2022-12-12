@@ -51,4 +51,5 @@ require("packer").startup(function()
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig",
 	})
+	use("itchyny/vim-cursorword")
 end)
