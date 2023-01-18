@@ -17,6 +17,7 @@ require("webdevicons")
 require("neotree")
 require("nvim-scrollbar")
 require("nvim-indent-blankline")
+require("telescope-set")
 
 -- cmd
 require("cmd")
