@@ -26,3 +26,17 @@ apt install clang-format
 ```
 pip install cpplint
 ```
+
+## Install TypeScript & JavaScript Dependencies
+
+```
+npm install -g typescript-language-server
+npm install -g typescript
+```
+
+## Install Tailwind Dependency
+
+```
+npm install -g tailwindcss-language-server
+```
+
