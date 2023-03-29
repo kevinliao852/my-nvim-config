@@ -38,6 +38,7 @@ local bufopts = { noremap = true, silent = true }
 
 -- Vim Basic
 
+keymap("n", "<leader>11", ":Copilot panel<CR>", opts)
 keymap("n", "<leader>c", ":q<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("i", "<C-l>", "<Esc>", opts)
