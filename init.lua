@@ -19,5 +19,7 @@ require("nvim-scrollbar")
 require("nvim-indent-blankline")
 require("telescope-set")
 
+require("chatgpt-setup")
+
 -- cmd
 require("cmd")

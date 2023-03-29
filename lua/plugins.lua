@@ -52,4 +52,13 @@ require("packer").startup(function()
 		requires = "neovim/nvim-lspconfig",
 	})
 	use("itchyny/vim-cursorword")
+
+	use({
+		"jackMort/ChatGPT.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 end)
