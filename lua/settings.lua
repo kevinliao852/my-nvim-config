@@ -125,6 +125,9 @@ keymap("n", "<leader>j", "<cmd>split<Bar>wincmd j<CR>", opts)
 keymap("n", "<leader>k", "<cmd>split<CR>", opts)
 keymap("n", "<leader>l", "<cmd>vsplit<Bar>wincmd l<CR>", opts)
 
+-- For GPT
+keymap("n", "<leader>i", ":ChatGPT<CR>", opts)
+
 -- legacy
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
