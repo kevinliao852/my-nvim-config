@@ -2,6 +2,9 @@
 
 Github: https://github.com/kevinliao852/my-nvim-config
 
+![Preview](https://i.imgur.com/yko6JbH.png)
+
+
 ---
 
 ## Instructions
