@@ -15,6 +15,32 @@ These steps are tested on Ubuntu 20.04.6.
 
 ### Set up Neovim
 
+#### Install binary
+
+Visit Neovim's [release](https://github.com/neovim/neovim/tags), and choose a tag, e.g., `v0.9.1`, then run the following commands:
+
+```bash=
+wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz
+tar xzvf nvim-linux64.tar.gz
+mv nvim-linux /usr/local/
+echo 'PATH=/usr/local/nvim-linux64/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+nvim --version
+```
+
+Expected output:
+
+```bash
+NVIM v0.9.1
+Build type: Release
+LuaJIT 2.1.0-beta3
+
+   system vimrc file: "$VIM/sysinit.vim"
+  fall-back for $VIM: "/__w/neovim/neovim/build/nvim.AppDir/usr/share/nvim"
+
+Run :checkhealth for more info
+```
+
 Reference: [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neovim)
 
 #### Build prerequisites
