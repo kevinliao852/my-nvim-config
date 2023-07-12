@@ -22,7 +22,7 @@ Visit Neovim's [release](https://github.com/neovim/neovim/tags), and choose a ta
 ```bash=
 wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
-mv nvim-linux /usr/local/
+mv nvim-linux64 /usr/local/
 echo 'PATH=/usr/local/nvim-linux64/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 nvim --version
