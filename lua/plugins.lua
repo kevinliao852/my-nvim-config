@@ -1,4 +1,5 @@
 require("packer").startup(function()
+	use("christoomey/vim-tmux-navigator")
 	use("rebelot/kanagawa.nvim")
 	use("wbthomason/packer.nvim")
 	use("terryma/vim-multiple-cursors")
