@@ -5,13 +5,17 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local lspconfig = require("lspconfig")
 local navic = require("nvim-navic")
 
+local on_attach = function(client, bufnr)
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
+end
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "gopls", "tailwindcss" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
-		on_attach = function(client, bufnr)
-			navic.attach(client, bufnr)
-		end,
+		on_attach = on_attach,
 		capabilities = capabilities,
 		handlers = {
 			["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)

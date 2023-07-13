@@ -1,12 +1,10 @@
 -- set details
 vim.cmd("set scrolloff=2")
-vim.cmd("colorscheme tokyonight-night")
-vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
+vim.cmd("colorscheme kanagawa-wave")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 vim.cmd("set encoding=utf-8")
 vim.cmd("set nocompatible")
 vim.cmd("set encoding")
-vim.cmd("set spelloptions=camel")
 -- vim.cmd("autocmd BufRead * Gitsigns toggle_current_line_blame true")
 
 -- window resize, using arrow keys
@@ -42,3 +40,7 @@ vim.cmd([[
 cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 ]])
+
+-- set spell check
+-- vim.cmd("set spelloptions=camel")
+-- vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
