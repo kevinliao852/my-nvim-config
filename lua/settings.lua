@@ -108,7 +108,7 @@ end, bufopts)
 
 -- Context
 
-keymap("n", "<space>`", ":ContextToggle<cr>", opts)
+keymap("n", "<space>`", ":TSContextToggle<cr>", opts)
 
 -- SymbolsOutline
 
