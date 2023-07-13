@@ -1,6 +1,6 @@
 -- set details
 vim.cmd("set scrolloff=2")
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme kanagawa-wave")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 vim.cmd("set encoding=utf-8")
 vim.cmd("set nocompatible")
