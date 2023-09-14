@@ -18,6 +18,7 @@ require("neotree")
 require("nvim-scrollbar")
 require("nvim-indent-blankline")
 require("telescope-set")
+require("lua-snip")
 
 require("chatgpt-setup")
 

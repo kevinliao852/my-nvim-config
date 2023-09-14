@@ -26,7 +26,10 @@ require("packer").startup(function()
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("saadparwaiz1/cmp_luasnip")
-	use("L3MON4D3/LuaSnip")
+	use({
+		"L3MON4D3/LuaSnip",
+		requires = "rafamadriz/friendly-snippets",
+	})
 	use("windwp/nvim-autopairs")
 	use("kyazdani42/nvim-web-devicons")
 	use("lukas-reineke/indent-blankline.nvim")
