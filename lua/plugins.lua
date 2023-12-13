@@ -28,7 +28,10 @@ require("packer").startup(function()
 	use("saadparwaiz1/cmp_luasnip")
 	use({
 		"L3MON4D3/LuaSnip",
-		requires = "rafamadriz/friendly-snippets",
+		requires = {
+			"rafamadriz/friendly-snippets",
+			"kevinliao852/fastapi-snippet",
+		},
 	})
 	use("windwp/nvim-autopairs")
 	use("kyazdani42/nvim-web-devicons")
