@@ -122,6 +122,13 @@ npm install -g typescript
 npm install -g typescript-language-server
 ```
 
+Go:
+
+```bash=
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin latest
+go install golang.org/x/tools/gopls@latest
+```
+
 Python:
 
 ```bash=
