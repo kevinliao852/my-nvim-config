@@ -4,7 +4,6 @@ Github: https://github.com/kevinliao852/my-nvim-config
 
 ![Preview](https://i.imgur.com/yko6JbH.png)
 
-
 ---
 
 ## Instructions
@@ -51,6 +50,12 @@ The steps illustrated here are only for Ubuntu/Debian. For other platforms, refe
 
 ```bash=
 sudo apt-get install ninja-build gettext cmake unzip curl
+```
+
+**Arch Linux**
+
+```bash=
+sudo pacman -S neovim
 ```
 
 #### Install from source
@@ -134,7 +139,6 @@ Python:
 ```bash=
 pip install black pylint pyright
 ```
-
 
 Tailwind CSS:
 
