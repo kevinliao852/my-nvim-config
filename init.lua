@@ -1,7 +1,7 @@
 -- keymap
 require("settings")
 -- packer
-require("plugins")
+require("lazyvim")
 
 -- lsp related
 require("navic")
