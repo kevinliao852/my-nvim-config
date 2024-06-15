@@ -51,7 +51,7 @@ require("lazy").setup({
 	{ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" },
 	{
 		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
+		dependencies = "neovim/nvim-lspconfig",
 	},
 	-- completion
 	{ "hrsh7th/nvim-cmp" },
@@ -62,10 +62,12 @@ require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 	{
 		"L3MON4D3/LuaSnip",
-		requires = {
+		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"kevinliao852/fastapi-snippet",
 		},
+		version = "v2.*",
+		build = "make install_jsregexp",
 	},
 	-- action
 	{ "itchyny/vim-cursorword" },
@@ -78,7 +80,7 @@ require("lazy").setup({
 	{ "tpope/vim-surround" },
 	{
 		"jackMort/ChatGPT.nvim",
-		requires = {
+		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
@@ -86,7 +88,7 @@ require("lazy").setup({
 	},
 	-- {
 	-- 	"tpope/vim-dadbod",
-	-- 	requires = {
+	-- 	dependencies = {
 	-- 		"kristijanhusak/vim-dadbod-ui",
 	-- 		"kristijanhusak/vim-dadbod-completion",
 	-- 	},
