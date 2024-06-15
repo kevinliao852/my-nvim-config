@@ -57,6 +57,7 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "petertriho/nvim-scrollbar" },
 	{ "github/copilot.vim" },
 	{ "saadparwaiz1/cmp_luasnip" },
