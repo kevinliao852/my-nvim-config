@@ -100,4 +100,6 @@ require("lazy").setup({
 	-- git
 	{ "lewis6991/gitsigns.nvim" },
 	{ "tpope/vim-fugitive" },
+	{ "mfussenegger/nvim-dap" },
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" } },
 })
