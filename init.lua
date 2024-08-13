@@ -19,6 +19,7 @@ require("nvim-scrollbar")
 require("nvim-indent-blankline")
 require("telescope-set")
 require("lua-snip")
+require("copilotsetting")
 
 require("chatgpt-setup")
 require("nvim-dap-ui-setting")

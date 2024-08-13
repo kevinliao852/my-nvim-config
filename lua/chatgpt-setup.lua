@@ -5,7 +5,6 @@ end
 -- Example usage:
 export_key("MY_KEY", "my_key_value")
 
-
 require("chatgpt").setup({
 	welcome_message = WELCOME_MESSAGE,
 	loading_text = "loading",
