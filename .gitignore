@@ -1,4 +1,7 @@
 *
 !*.lua
-!lua/                 
+!*.yaml
+!lua/
 !lua/*.*
+!.github/*
+!.github
