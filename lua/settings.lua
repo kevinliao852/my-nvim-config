@@ -159,6 +159,12 @@ vim.keymap.set("n", "<Leader>ds", function()
 	widgets.centered_float(widgets.scopes)
 end)
 
+-- For copilot
+vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+
 -- legacy
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
