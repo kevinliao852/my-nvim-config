@@ -128,6 +128,37 @@ keymap("n", "<leader>l", "<cmd>vsplit<Bar>wincmd l<CR>", opts)
 -- For GPT
 keymap("n", "<leader>i", ":ChatGPT<CR>", opts)
 
+-- For DAP
+vim.api.nvim_set_keymap("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dc", ":lua require'dap'.continue()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>di", ":lua require'dap'.step_into()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>do", ":lua require'dap'.step_over()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require'dapui'.toggle()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dw", "<cmd>DapVirtualTextToggle<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dq", ":lua require'dap'.terminate()<CR>", opts)
+vim.keymap.set("n", "<Leader>dk", function()
+	require("dap").step_out()
+end)
+vim.keymap.set("n", "<Leader>dl", function()
+	require("dap").run_last()
+end)
+vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+	require("dap.ui.widgets").hover()
+end)
+vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
+	require("dap.ui.widgets").preview()
+end)
+vim.keymap.set("n", "<Leader>df", function()
+	local widgets = require("dap.ui.widgets")
+	widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set("n", "<Leader>ds", function()
+	local widgets = require("dap.ui.widgets")
+
+	widgets.centered_float(widgets.scopes)
+end)
+
 -- legacy
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)

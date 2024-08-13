@@ -21,6 +21,9 @@ require("telescope-set")
 require("lua-snip")
 
 require("chatgpt-setup")
+require("nvim-dap-ui-setting")
+require("go-dap-setting")
+require("v-dap-text")
 
 -- cmd
 require("cmd")
