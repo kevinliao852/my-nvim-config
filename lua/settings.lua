@@ -165,6 +165,9 @@ vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
 	replace_keycodes = false,
 })
 
+-- nvvim-folding
+vim.api.nvim_set_keymap("n", "<leader>zf", ":lua require('nvim-folding').choose_folding_method()<CR>", opts)
+
 -- legacy
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
