@@ -112,4 +112,10 @@ require("lazy").setup({
 	-- 		require("copilot").setup({})
 	-- 	end,
 	-- },
+	{
+		"kevinliao852/nvim-folding",
+		config = function()
+			require("nvim-folding").setup()
+		end,
+	},
 })
