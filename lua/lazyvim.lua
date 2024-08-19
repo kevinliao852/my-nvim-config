@@ -118,4 +118,7 @@ require("lazy").setup({
 			require("nvim-folding").setup()
 		end,
 	},
+	{
+		"folke/zen-mode.nvim",
+	},
 })
