@@ -48,7 +48,13 @@ require("lazy").setup({
 	{ "vim-airline/vim-airline-themes" },
 	{ "luochen1990/rainbow" },
 	{ "kyazdani42/nvim-web-devicons" },
-	{ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
 	{
 		"SmiteshP/nvim-navic",
 		dependencies = "neovim/nvim-lspconfig",
