@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "gopls", "tailwindcss" }
+local servers = { "clangd", "rust_analyzer", "pyright", "ts_ls", "gopls", "tailwindcss" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
@@ -33,7 +33,7 @@ require("lspconfig").jdtls.setup({
 	cmd = { "jdtls" },
 })
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
 	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
