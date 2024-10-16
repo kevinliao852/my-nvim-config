@@ -18,7 +18,14 @@ nullls.setup({
 		require("null-ls").builtins.diagnostics.eslint,
 		require("null-ls").builtins.diagnostics.cpplint,
 		require("null-ls").builtins.code_actions.eslint,
-		require("null-ls").builtins.diagnostics.pylint,
+		require("null-ls").builtins.diagnostics.ruff.with({
+			command = "ruff",
+			args = { "--format", "text", "--stdin-filename", "$FILENAME", "-" },
+			timeout = 5000,
+			condition = function(utils)
+				return utils.root_has_file({ ".ruff.toml", "pyproject.toml" })
+			end,
+		}),
 		require("null-ls").builtins.diagnostics.golangci_lint,
 		require("null-ls").builtins.completion.spell,
 	},
