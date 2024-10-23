@@ -32,9 +32,10 @@ require("lazy").setup({
 	{ "onsails/lspkind.nvim" },
 	{ "jose-elias-alvarez/null-ls.nvim" },
 	-- treesitter
+	{ "BurntSushi/ripgrep" }, -- for live_grep
 	{
 		"nvim-treesitter/nvim-treesitter",
-		"BurntSushi/ripgrep", -- for live_grep
+		version = "v0.9.2",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
