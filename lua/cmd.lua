@@ -12,7 +12,7 @@ vim.cmd("nnoremap <silent> <Up>    :<C-u>resize -2<CR>")
 vim.cmd("nnoremap <silent> <Down>  :<C-u>resize +2<CR>")
 vim.cmd("nnoremap <silent> <Left>  :<C-u>vertical resize -4<CR>")
 vim.cmd("nnoremap <silent> <Right> :<C-u>vertical resize +4<CR>")
-vim.g.airline_theme = "tomorrow"
+vim.g.airline_theme = "distinguished"
 vim.g.python3_host_prog = "/usr/local/bin/python3"
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {

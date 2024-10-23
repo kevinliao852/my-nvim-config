@@ -100,8 +100,7 @@ local lspkind = require("lspkind")
 cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
-			mode = "symbol",
-			maxwidth = 50,
+			mode = "symbol_text",
 		}),
 	},
 })
@@ -113,14 +112,14 @@ lspsaga.setup({
 	code_action_prompt = {
 		enable = true,
 		sign = true,
-		sign_priority = 40,
-		virtual_text = true,
+		sign_priority = 10,
+		virtual_text = false,
 	},
 	error_sign = "",
 	warn_sign = "",
-	hint_sign = "",
+	hint_sign = "",
 	infor_sign = "",
 	diagnostic_header_icon = "   ",
-	code_action_icon = " ",
+	code_action_icon = "A ",
 	border_style = "round",
 })

@@ -16,6 +16,7 @@ vim.g.undotree_WindowLayout = 4
 vim.opt.termguicolors = true
 vim.opt.mouse = ""
 vim.g.rainbow_active = 1
+vim.opt.colorcolumn = "80"
 
 -- airline
 vim.g["airline#extensions#tabline#enabled"] = 1
@@ -101,7 +102,7 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 vim.keymap.set("n", "<space>f", function()
 	vim.lsp.buf.format({ async = true })
 end, bufopts)
-vim.keymap.set("n", "zi", vim.lsp.buf.code_action, bufopts)
+vim.keymap.set({ "n", "v" }, "zi", vim.lsp.buf.code_action, bufopts)
 vim.keymap.set("n", "<space>wl", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, bufopts)
