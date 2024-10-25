@@ -16,16 +16,18 @@ These steps are tested on Ubuntu 20.04.6.
 
 ### Set up Neovim
 
-#### Install binary
+#### Download the Neovim's pre-compiled binary (Recommended)
 
-Visit Neovim's [release](https://github.com/neovim/neovim/tags), and choose a tag, e.g., `v0.9.1`, then run the following commands:
+Visit the Neovim's [release](https://github.com/neovim/neovim/tags) page, and choose a tag, e.g., `v0.9.1`, then run the following commands:
 
 ```bash=
-wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz
-mv nvim-linux64 /usr/local/
+NVIM_VERSION=v0.9.1
+wget https://github.com/neovim/neovim/releases/download/"${NVIM_VERSION}"/nvim-linux64.tar.gz
+rm -rf /usr/local/nvim-linux64 && tar -C /usr/local -zxvf nvim-linux64.tar.gz # as root
 echo 'PATH=/usr/local/nvim-linux64/bin:$PATH' >> ~/.bashrc
+# echo 'PATH=/usr/local/nvim-linux64/bin:$PATH' >> ~/.zshrc # if Z shell is used
 source ~/.bashrc
+# source ~/.zshrc # if Z shell is used
 nvim --version
 ```
 
@@ -46,7 +48,7 @@ Reference: [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neov
 
 #### Build prerequisites
 
-The steps illustrated here are only for Ubuntu/Debian. For other platforms, refer to [this](https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites).
+The steps illustrated here are only for Ubuntu/Debian. For other platforms, refer to the Neovim's Wiki [page](https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites).
 
 **Ubuntu / Debian**
 
@@ -82,22 +84,13 @@ Compilation: /usr/bin/cc -O2 -g -Og -g -Wall -Wextra -pedantic -Wno-unused-param
 Run :checkhealth for more info
 ```
 
-For convenience, add the commands to `~/.bashrc` by running the following in your terminal:
+For convenience, add the commands to `~/.bashrc` (or `~/.zshrc`) by running the following in your terminal:
 
 ```bash=
 echo "alias v=nvim" >> ~/.bashrc
+# echo "alias v=nvim" >> ~/.zshrc # if Z shell is used
 source ~/.bashrc
-```
-
----
-
-### Set up Packer
-
-Reference: [packer.nvim](https://github.com/wbthomason/packer.nvim)
-
-```bash=
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# source ~/.zshrc # if Z shell is used
 ```
 
 ---
@@ -108,12 +101,14 @@ Reference: [my-nvim-config](https://github.com/kevinliao852/my-nvim-config)
 
 ```bash=
 mkdir -p ~/.config/nvim
-git clone --depth 1 https://github.com/kevinliao852/my-nvim-config.git ~/.config/nvim/
+git clone https://github.com/kevinliao852/my-nvim-config.git ~/.config/nvim/
 ```
 
-Type `v` in the command line to enter into the Neovim, then type `:PackerInstall`, and wait a few minutes to have packages installed.
+Type `v` in the command line to enter into the Neovim, then wait a few seconds to have packages installed.
 
-Other dependencies:
+---
+
+### Optional Dependencies
 
 C/C++:
 
