@@ -28,7 +28,7 @@ require("lazy").setup({
 	{ "ThePrimeagen/harpoon" },
 	-- lsp related
 	{ "neovim/nvim-lspconfig" },
-	{ "tami5/lspsaga.nvim" },
+	{ "nvimdev/lspsaga.nvim" },
 	{ "onsails/lspkind.nvim" },
 	{ "jose-elias-alvarez/null-ls.nvim" },
 	-- treesitter

@@ -106,20 +106,25 @@ cmp.setup({
 })
 
 -- lspsaga
+
 local lspsaga = require("lspsaga")
 lspsaga.setup({
-	use_saga_diagnostic_sign = true,
-	code_action_prompt = {
-		enable = true,
-		sign = true,
-		sign_priority = 10,
-		virtual_text = false,
+	symbol_in_winbar = {
+		enable = false,
 	},
-	error_sign = "",
-	warn_sign = "",
-	hint_sign = "",
-	infor_sign = "",
-	diagnostic_header_icon = "   ",
-	code_action_icon = "A ",
+	use_saga_diagnostic_sign = true,
+	lightbulb = {
+		enable = true,
+
+		sign_priority = 40,
+		sign = true,
+		virtual_text = false,
+		debounce = 1000,
+	},
 	border_style = "round",
+	ui = {
+		lspkind = lspkind.presets.default,
+		devicon = true,
+		code_action = "A",
+	},
 })
