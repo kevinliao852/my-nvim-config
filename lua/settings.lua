@@ -169,6 +169,10 @@ vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
 -- nvvim-folding
 vim.api.nvim_set_keymap("n", "<leader>zf", ":lua require('nvim-folding').choose_folding_method()<CR>", opts)
 
+-- easy align
+vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", opts_noslient)
+vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", opts_noslient)
+
 -- legacy
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)

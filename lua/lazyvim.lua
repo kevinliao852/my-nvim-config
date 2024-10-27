@@ -128,4 +128,7 @@ require("lazy").setup({
 	{
 		"folke/zen-mode.nvim",
 	},
+	{
+		"junegunn/vim-easy-align",
+	},
 })
