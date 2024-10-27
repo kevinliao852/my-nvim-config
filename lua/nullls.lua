@@ -18,7 +18,7 @@ nullls.setup({
 		require("null-ls").builtins.diagnostics.eslint,
 		require("null-ls").builtins.diagnostics.cpplint,
 		require("null-ls").builtins.code_actions.eslint,
-		require("null-ls").builtins.diagnostics.pylint,
+		require("null-ls").builtins.diagnostics.ruff,
 		require("null-ls").builtins.diagnostics.golangci_lint,
 		require("null-ls").builtins.completion.spell,
 	},
