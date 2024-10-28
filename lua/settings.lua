@@ -83,7 +83,7 @@ keymap("n", "zo", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 
 -- Nerdtree
 
-keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
+-- keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
 
 -- Lsp
 
@@ -172,6 +172,35 @@ vim.api.nvim_set_keymap("n", "<leader>zf", ":lua require('nvim-folding').choose_
 -- easy align
 vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", opts_noslient)
 vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", opts_noslient)
+
+-- neotest
+vim.keymap.set("n", "<leader>tn", function()
+	require("neotest").run.run()
+end, { desc = "Run nearest test" })
+
+vim.keymap.set("n", "<leader>tt", function()
+	require("neotest").run.run(vim.fn.expand("%"))
+end, { desc = "Run test file" })
+
+vim.keymap.set("n", "<leader>td", function()
+	require("neotest").run.run({ strategy = "dap" })
+end, { desc = "Debug nearest test" })
+
+vim.keymap.set("n", "<leader>ts", function()
+	require("neotest").run.stop()
+end, { desc = "Stop nearest test" })
+
+vim.keymap.set("n", "<leader>ta", function()
+	require("neotest").run.attach()
+end, { desc = "Attach to nearest test" })
+
+vim.keymap.set("n", "<leader>to", function()
+	require("neotest").output.open({ enter = true })
+end, { desc = "Open test output" })
+
+vim.keymap.set("n", "<leader>tp", function()
+	require("neotest").output_panel.toggle()
+end, { desc = "Toggle test output panel" })
 
 -- legacy
 
