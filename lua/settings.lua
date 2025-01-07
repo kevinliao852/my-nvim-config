@@ -1,7 +1,7 @@
 -- set meta
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
-vim.o.term = "xterm-256color"
+-- vim.o.term = "xterm-256color"
 vim.o.relativenumber = true
 vim.o.number = true
 vim.o.autoindent = true
@@ -25,7 +25,7 @@ vim.g["airline#extensions#tabline#show_close_button"] = 0
 vim.g["airline#extensions#tabline#show_tabs"] = 1
 vim.g["airline#extensions#ctrlspace#enabled"] = 1
 
--- buffer name formmatter
+-- buffer name formatter
 vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved"
 vim.g["airline#extensions#tabline#fnamemod"] = ":t"
 vim.g["airline#extensions#tabline#fnamecollapse"] = 0
