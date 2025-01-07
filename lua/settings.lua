@@ -1,7 +1,7 @@
 -- set meta
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
-vim.o.term = "xterm-256color"
+-- vim.o.term = "xterm-256color"
 vim.o.relativenumber = true
 vim.o.number = true
 vim.o.autoindent = true
