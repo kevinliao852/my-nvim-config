@@ -108,6 +108,7 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim" },
 	{ "tpope/vim-fugitive" },
 	{ "mfussenegger/nvim-dap" },
+	{ "mfussenegger/nvim-dap-python" },
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
@@ -123,6 +124,7 @@ require("lazy").setup({
 		"nvim-neotest/neotest",
 		dependencies = {
 			"nvim-neotest/neotest-go",
+			"nvim-neotest/neotest-python",
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
@@ -147,6 +149,11 @@ require("lazy").setup({
 				-- your neotest config here
 				adapters = {
 					require("neotest-go"), -- Registration
+				},
+			})
+			require("neotest").setup({
+				adapters = {
+					require("neotest-python"),
 				},
 			})
 		end,
