@@ -7,7 +7,6 @@ end
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<C-t>", ":NeoTreeFocusToggle<CR>", opts)
 
 neotree.setup({
 	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab

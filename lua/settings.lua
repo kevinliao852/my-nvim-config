@@ -81,12 +81,11 @@ keymap("n", "<space>as", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 keymap("n", "zo", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 
--- Nerdtree
-
--- keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
+-- Neotree
+keymap("n", "<C-t>", "<cmd>Neotree toggle<cr>", opts)
+keymap("n", "<leader><C-t>", "<cmd>Neotree toggle source=buffers float<cr>", opts)
 
 -- Lsp
-
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 vim.keymap.set("n", "zj", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "zk", vim.diagnostic.goto_next, opts)
