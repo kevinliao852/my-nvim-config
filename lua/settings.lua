@@ -18,19 +18,6 @@ vim.opt.mouse = ""
 vim.g.rainbow_active = 1
 vim.opt.colorcolumn = "80"
 
--- airline
-vim.g["airline#extensions#tabline#enabled"] = 1
-vim.g["airline#extensions#tabline#show_buffers"] = 1
-vim.g["airline#extensions#tabline#show_close_button"] = 0
-vim.g["airline#extensions#tabline#show_tabs"] = 1
-vim.g["airline#extensions#ctrlspace#enabled"] = 1
-
--- buffer name formatter
-vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved"
-vim.g["airline#extensions#tabline#fnamemod"] = ":t"
-vim.g["airline#extensions#tabline#fnamecollapse"] = 0
-vim.g["airline#extensions#tabline#fnametruncate"] = 12
-
 -- set key bindings
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -81,12 +68,11 @@ keymap("n", "<space>as", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 keymap("n", "zo", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 
--- Nerdtree
-
--- keymap("n", "<leader>tt", ":NERDTreeToggle<CR>", opts)
+-- Neotree
+keymap("n", "<C-t>", "<cmd>Neotree toggle<cr>", opts)
+keymap("n", "<leader><C-t>", "<cmd>Neotree toggle source=buffers float<cr>", opts)
 
 -- Lsp
-
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 vim.keymap.set("n", "zj", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "zk", vim.diagnostic.goto_next, opts)
@@ -113,7 +99,7 @@ keymap("n", "<space>`", ":TSContextToggle<cr>", opts)
 
 -- SymbolsOutline
 
-keymap("n", "<space><Tab>", ":SymbolsOutline<cr>", opts)
+keymap("n", "<space><Tab>", "<cmd>Outline<cr>", opts)
 
 -- Fugitive
 
@@ -203,6 +189,21 @@ vim.keymap.set("n", "<leader>tp", function()
 end, { desc = "Toggle test output panel" })
 
 -- legacy
+vim.keymap.set("n", "<F5>", function()
+	require("dap").continue()
+end, { noremap = true, silent = true, desc = "Start/Continue Debugging" })
+
+vim.keymap.set("n", "<F9>", function()
+	require("dap").toggle_breakpoint()
+end, { noremap = true, silent = true, desc = "Toggle Breakpoint" })
+
+vim.keymap.set("n", "<F10>", function()
+	require("dap").step_over()
+end, { noremap = true, silent = true, desc = "Step Over" })
+
+vim.keymap.set("n", "<F11>", function()
+	require("dap").step_into()
+end, { noremap = true, silent = true, desc = "Step Into" })
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 -- keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)

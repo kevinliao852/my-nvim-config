@@ -12,11 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- file tree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
+			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 		},
 	},
@@ -44,9 +44,13 @@ require("lazy").setup({
 	-- view
 	{ "folke/tokyonight.nvim" },
 	{ "rebelot/kanagawa.nvim" },
-	{ "simrat39/symbols-outline.nvim" },
-	{ "vim-airline/vim-airline" },
-	{ "vim-airline/vim-airline-themes" },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
 	{ "luochen1990/rainbow" },
 	{ "kyazdani42/nvim-web-devicons" },
 	{
@@ -94,41 +98,25 @@ require("lazy").setup({
 			"nvim-telescope/telescope.nvim",
 		},
 	},
-	-- {
-	-- 	"tpope/vim-dadbod",
-	-- 	dependencies = {
-	-- 		"kristijanhusak/vim-dadbod-ui",
-	-- 		"kristijanhusak/vim-dadbod-completion",
-	-- 	},
-	-- 	config = function()
-	-- 		require("config.dadbod").setup({})
-	-- 	end,
-	-- },
 	-- git
 	{ "lewis6991/gitsigns.nvim" },
 	{ "tpope/vim-fugitive" },
 	{ "mfussenegger/nvim-dap" },
+	{ "mfussenegger/nvim-dap-python" },
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
 	},
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({})
-	-- 	end,
-	-- },
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
 			"nvim-neotest/neotest-go",
+			"nvim-neotest/neotest-python",
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"leoluz/nvim-dap-go",
-			-- Your other test adapters here
 		},
 		config = function()
 			-- get neotest namespace (api call creates or returns namespace)
@@ -149,18 +137,15 @@ require("lazy").setup({
 					require("neotest-go"), -- Registration
 				},
 			})
+			require("neotest").setup({
+				adapters = {
+					require("neotest-python"),
+				},
+			})
 		end,
 	},
-	{
-		"kevinliao852/nvim-folding",
-		config = function()
-			require("nvim-folding").setup()
-		end,
-	},
-	{
-		"folke/zen-mode.nvim",
-	},
-	{
-		"junegunn/vim-easy-align",
-	},
+	{ "kevinliao852/nvim-folding" },
+	{ "folke/zen-mode.nvim" },
+	{ "junegunn/vim-easy-align" },
+	{ "hedyhli/outline.nvim" },
 })

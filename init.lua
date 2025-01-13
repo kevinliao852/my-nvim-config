@@ -24,7 +24,9 @@ require("copilotsetting")
 require("chatgpt-setup")
 require("nvim-dap-ui-setting")
 require("go-dap-setting")
+require("py-dap-setting")
 require("v-dap-text")
+require("lualine-setting")
 
 -- cmd
 require("cmd")
