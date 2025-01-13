@@ -203,6 +203,21 @@ vim.keymap.set("n", "<leader>tp", function()
 end, { desc = "Toggle test output panel" })
 
 -- legacy
+vim.keymap.set("n", "<F5>", function()
+	require("dap").continue()
+end, { noremap = true, silent = true, desc = "Start/Continue Debugging" })
+
+vim.keymap.set("n", "<F9>", function()
+	require("dap").toggle_breakpoint()
+end, { noremap = true, silent = true, desc = "Toggle Breakpoint" })
+
+vim.keymap.set("n", "<F10>", function()
+	require("dap").step_over()
+end, { noremap = true, silent = true, desc = "Step Over" })
+
+vim.keymap.set("n", "<F11>", function()
+	require("dap").step_into()
+end, { noremap = true, silent = true, desc = "Step Into" })
 
 -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 -- keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
