@@ -44,8 +44,13 @@ require("lazy").setup({
 	-- view
 	{ "folke/tokyonight.nvim" },
 	{ "rebelot/kanagawa.nvim" },
-	{ "vim-airline/vim-airline" },
-	{ "vim-airline/vim-airline-themes" },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
 	{ "luochen1990/rainbow" },
 	{ "kyazdani42/nvim-web-devicons" },
 	{

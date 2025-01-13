@@ -18,19 +18,6 @@ vim.opt.mouse = ""
 vim.g.rainbow_active = 1
 vim.opt.colorcolumn = "80"
 
--- airline
-vim.g["airline#extensions#tabline#enabled"] = 1
-vim.g["airline#extensions#tabline#show_buffers"] = 1
-vim.g["airline#extensions#tabline#show_close_button"] = 0
-vim.g["airline#extensions#tabline#show_tabs"] = 1
-vim.g["airline#extensions#ctrlspace#enabled"] = 1
-
--- buffer name formatter
-vim.g["airline#extensions#tabline#formatter"] = "unique_tail_improved"
-vim.g["airline#extensions#tabline#fnamemod"] = ":t"
-vim.g["airline#extensions#tabline#fnamecollapse"] = 0
-vim.g["airline#extensions#tabline#fnametruncate"] = 12
-
 -- set key bindings
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
