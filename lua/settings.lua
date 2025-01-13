@@ -113,7 +113,7 @@ keymap("n", "<space>`", ":TSContextToggle<cr>", opts)
 
 -- SymbolsOutline
 
-keymap("n", "<space><Tab>", ":SymbolsOutline<cr>", opts)
+keymap("n", "<space><Tab>", "<cmd>Outline<cr>", opts)
 
 -- Fugitive
 

@@ -44,7 +44,6 @@ require("lazy").setup({
 	-- view
 	{ "folke/tokyonight.nvim" },
 	{ "rebelot/kanagawa.nvim" },
-	{ "simrat39/symbols-outline.nvim" },
 	{ "vim-airline/vim-airline" },
 	{ "vim-airline/vim-airline-themes" },
 	{ "luochen1990/rainbow" },
@@ -170,4 +169,5 @@ require("lazy").setup({
 	{
 		"junegunn/vim-easy-align",
 	},
+	{ "hedyhli/outline.nvim" },
 })
