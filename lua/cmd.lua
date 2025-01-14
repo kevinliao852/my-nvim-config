@@ -41,5 +41,6 @@ cnoreabbrev WQa wqa
 ]])
 
 -- set spell check
--- vim.cmd("set spelloptions=camel")
+vim.cmd("set spelloptions=camel")
+vim.opt.spelllang = vim.opt.spelllang + { "cjk" }
 -- vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
