@@ -1,6 +1,6 @@
 -- set meta
 vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrwPlugin = 1
 -- vim.o.term = "xterm-256color"
 vim.o.relativenumber = true
 vim.o.number = true
@@ -67,6 +67,8 @@ keymap("n", "<space>as", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 
 keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 keymap("n", "zo", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+-- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+-- keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
 -- Neotree
 keymap("n", "<C-t>", "<cmd>Neotree toggle<cr>", opts)
@@ -205,5 +207,8 @@ vim.keymap.set("n", "<F11>", function()
 	require("dap").step_into()
 end, { noremap = true, silent = true, desc = "Step Into" })
 
--- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
--- keymap("n", "zo", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+-- turn off all buffers
+keymap("n", "<leader><leader>b", ":bufdo bwipeout<CR>", opts)
+
+-- inlay hints
+keymap("n", "<leader>xz", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", opts)

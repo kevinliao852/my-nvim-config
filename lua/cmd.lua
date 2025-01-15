@@ -41,5 +41,28 @@ cnoreabbrev WQa wqa
 ]])
 
 -- set spell check
--- vim.cmd("set spelloptions=camel")
+vim.cmd("set spelloptions=camel")
+vim.opt.spelllang = vim.opt.spelllang + { "cjk" }
 -- vim.cmd("hi SpellBad gui=undercurl  ctermbg=None cterm=undercurl guifg=#96be25")
+--
+
+-- Define the space sign
+vim.cmd([[
+sign define SpaceSign text=\  texthl=NONE
+]])
+
+-- Function to place the space sign for all lines in a buffer
+local function place_space_signs(bufnr)
+	local line_count = vim.api.nvim_buf_line_count(bufnr)
+	for i = 1, line_count do
+		vim.cmd(string.format("sign place %d line=%d name=SpaceSign buffer=%d", i, i, bufnr))
+	end
+end
+
+-- Autocommand to load the space sign in every buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function(args)
+		local bufnr = args.buf
+		place_space_signs(bufnr)
+	end,
+})

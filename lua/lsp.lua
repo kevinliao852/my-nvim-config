@@ -42,9 +42,34 @@ require("lspconfig").ts_ls.setup({
 })
 
 require("lspconfig").gopls.setup({
+	capabilities = capabilities,
+	settings = {
+		lens = {
+			enable = true,
+			disable = {},
+		},
+
+		gopls = {
+			codelenses = {
+				vulncheck = true, -- "Run govulncheck" code lens on go.mod file.
+				generate = true, -- Enable code lens for generating code
+				gc_details = true, -- Enable code lens for GC optimization details
+			},
+			["ui.inlayhint.hints"] = {
+				compositeLiteralFields = true,
+				constantValues = true,
+				parameterNames = true,
+				assignVariableTypes = true,
+			},
+		},
+	},
 	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
+		client.server_capabilities.codeLensProvider = {
+			resolveProvider = false, -- Set to true if you plan to implement lens resolution
+		}
+
 		navic.attach(client, bufnr)
 	end,
 })
@@ -143,3 +168,11 @@ lspsaga.setup({
 		code_action = "A",
 	},
 })
+
+-- CodeLens (experimental)
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold" }, {
+	callback = function()
+		vim.lsp.codelens.refresh()
+	end,
+})
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>lua vim.lsp.codelens.run()<CR>", { noremap = true, silent = true })

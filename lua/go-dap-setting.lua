@@ -110,4 +110,15 @@ dap.configurations.go = {
 		mode = "test",
 		program = "./${relativeFileDirname}",
 	},
+	{
+		type = "delve",
+		name = "Debug test (go.mod) with args",
+		program = "./${relativeFileDirname}",
+		request = "launch",
+		args = function()
+			local argument_string = vim.fn.input("Program arguments: ")
+
+			return vim.fn.split(argument_string, " ", true)
+		end,
+	},
 }
