@@ -74,7 +74,7 @@ require("lspconfig").gopls.setup({
 	end,
 })
 
-require("lspconfig").pyright.setup({
+require("lspconfig").ruff.setup({
 	settings = {
 		pyright = {
 			-- Using Ruff's import organizer
@@ -171,6 +171,7 @@ lspsaga.setup({
 
 -- CodeLens (experimental)
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold" }, {
+	pattern = "*.*",
 	callback = function()
 		vim.lsp.codelens.refresh()
 	end,
