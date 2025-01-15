@@ -135,10 +135,6 @@ require("lazy").setup({
 				-- your neotest config here
 				adapters = {
 					require("neotest-go"), -- Registration
-				},
-			})
-			require("neotest").setup({
-				adapters = {
 					require("neotest-python"),
 				},
 			})
