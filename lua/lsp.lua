@@ -27,10 +27,10 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.clangd.setup({
-  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
-  init_options = {
-    fallbackFlags = { '-std=c++20' },
-  },
+	cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
+	init_options = {
+		fallbackFlags = { "-std=c++20" },
+	},
 })
 
 require("lspconfig").jdtls.setup({
