@@ -30,6 +30,7 @@ require("lazy").setup({
 	{ "neovim/nvim-lspconfig" },
 	{ "nvimdev/lspsaga.nvim" },
 	{ "onsails/lspkind.nvim" },
+	{ "mfussenegger/nvim-jdtls" },
 	{ "nvimtools/none-ls.nvim" },
 	-- treesitter
 	{ "BurntSushi/ripgrep" }, -- for live_grep
