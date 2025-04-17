@@ -26,13 +26,6 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lspconfig").jdtls.setup({
-	on_attach = function(client, bufnr)
-		navic.attach(client, bufnr)
-	end,
-	cmd = { "jdtls" },
-})
-
 require("lspconfig").ts_ls.setup({
 	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
