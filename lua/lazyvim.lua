@@ -24,6 +24,18 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.4",
 	},
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup()
+		end,
+	},
 	{ "mbbill/undotree" },
 	{ "ThePrimeagen/harpoon" },
 	-- lsp related
