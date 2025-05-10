@@ -145,6 +145,17 @@ require("lazy").setup({
 	{ "folke/zen-mode.nvim" },
 	{ "junegunn/vim-easy-align" },
 	{ "hedyhli/outline.nvim" },
+	{
+		"j-hui/fidget.nvim",
+		opts = {
+			-- options
+		},
+		config = function()
+			require("fidget-config").init({})
+			require("fidget").setup()
+		end,
+	},
 	require("llm.avante"),
 	require("llm.mcphub"),
+	require("llm.code-companion"),
 })
