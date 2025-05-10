@@ -20,7 +20,6 @@ require("nvim-indent-blankline")
 require("telescope-set")
 require("lua-snip")
 
-require("chatgpt-setup")
 require("nvim-dap-ui-setting")
 require("go-dap-setting")
 require("py-dap-setting")
