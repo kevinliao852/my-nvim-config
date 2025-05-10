@@ -207,6 +207,10 @@ vim.keymap.set("n", "<F11>", function()
 	require("dap").step_into()
 end, { noremap = true, silent = true, desc = "Step Into" })
 
+-- codecompanion
+vim.keymap.set("n", "<leader>ag", ":CodeCompanionChat<CR>", { desc = "Code Companion" })
+vim.keymap.set("n", "<leader>ah", ":CodeCompanionActions<CR>", { desc = "Code Companion Actions" })
+
 -- turn off all buffers
 keymap("n", "<leader><leader>b", ":bufdo bwipeout<CR>", opts)
 
