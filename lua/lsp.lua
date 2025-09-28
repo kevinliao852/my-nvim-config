@@ -2,7 +2,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp
 local navic = require("nvim-navic")
 
 local on_attach = function(client, bufnr)
@@ -14,7 +14,7 @@ end
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { "clangd", "rust_analyzer", "pyright", "ruff", "ts_ls", "gopls", "tailwindcss", "lua_ls" }
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
+	lspconfig.config(lsp, {
 		on_attach = on_attach,
 		capabilities = capabilities,
 		handlers = {
@@ -26,7 +26,7 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("lspconfig").ts_ls.setup({
+lspconfig.config("ts_ls", {
 	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
@@ -34,7 +34,7 @@ require("lspconfig").ts_ls.setup({
 	end,
 })
 
-require("lspconfig").gopls.setup({
+lspconfig.config("gopls", {
 	capabilities = capabilities,
 	settings = {
 		lens = {
@@ -67,7 +67,7 @@ require("lspconfig").gopls.setup({
 	end,
 })
 
-require("lspconfig").ruff.setup({
+lspconfig.config("ruff", {
 	settings = {
 		pyright = {
 			-- Using Ruff's import organizer

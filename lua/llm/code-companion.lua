@@ -28,23 +28,25 @@ return {
 					adapter = "deepseek",
 				},
 			},
-			adapters = {
-				llama3 = function()
-					return require("codecompanion.adapters").extend("ollama", {
-						name = "llama3",
-						schema = {
-							model = {
-								default = "qwen3:1.7b",
+			http = {
+				adapters = {
+					llama3 = function()
+						return require("codecompanion.adapters").extend("ollama", {
+							name = "llama3",
+							schema = {
+								model = {
+									default = "gpt-oss:latest",
+								},
+								num_ctx = {
+									default = 16384,
+								},
+								num_predict = {
+									default = -1,
+								},
 							},
-							num_ctx = {
-								default = 16384,
-							},
-							num_predict = {
-								default = -1,
-							},
-						},
-					})
-				end,
+						})
+					end,
+				},
 			},
 		})
 	end,
