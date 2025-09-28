@@ -24,6 +24,7 @@ for _, lsp in ipairs(servers) do
 			end,
 		},
 	})
+	vim.lsp.enable(lsp)
 end
 
 lspconfig.config("ts_ls", {
