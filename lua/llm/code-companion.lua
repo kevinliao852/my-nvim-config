@@ -3,7 +3,7 @@ return {
 	opts = {},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-treesitter/nvim-treesitter",
+		-- "nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
 		require("codecompanion").setup({
@@ -19,7 +19,7 @@ return {
 			},
 			strategies = {
 				chat = {
-					adapter = "llama3",
+					adapter = "openai",
 				},
 				inline = {
 					adapter = "anthropic",
@@ -30,22 +30,22 @@ return {
 			},
 			http = {
 				adapters = {
-					llama3 = function()
-						return require("codecompanion.adapters").extend("ollama", {
-							name = "llama3",
-							schema = {
-								model = {
-									default = "gpt-oss:latest",
-								},
-								num_ctx = {
-									default = 16384,
-								},
-								num_predict = {
-									default = -1,
-								},
-							},
-						})
-					end,
+					-- llama3 = function()
+					-- 	return require("codecompanion.adapters").extend("ollama", {
+					-- 		name = "llama3",
+					-- 		schema = {
+					-- 			model = {
+					-- 				default = "gpt-oss:latest",
+					-- 			},
+					-- 			num_ctx = {
+					-- 				default = 16384,
+					-- 			},
+					-- 			num_predict = {
+					-- 				default = -1,
+					-- 			},
+					-- 		},
+					-- 	})
+					-- end,
 				},
 			},
 		})

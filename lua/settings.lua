@@ -1,5 +1,10 @@
 -- set meta
 vim.g.loaded = 1
+vim.diagnostic.config({
+	virtual_text = {
+		update_in_insert = true,
+	},
+})
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.o.term = "xterm-256color"
 vim.o.relativenumber = true

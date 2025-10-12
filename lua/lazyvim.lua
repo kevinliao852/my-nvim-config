@@ -22,7 +22,7 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
+		branch = "master",
 	},
 	{
 		"williamboman/mason.nvim",
@@ -46,7 +46,7 @@ require("lazy").setup({
 	{ "BurntSushi/ripgrep" }, -- for live_grep
 	{
 		"nvim-treesitter/nvim-treesitter",
-		version = "v0.9.2",
+		branch = "main",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
@@ -113,6 +113,7 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim" },
 	{ "tpope/vim-fugitive" },
 	{ "mfussenegger/nvim-dap" },
+	{ "leoluz/nvim-dap-go" },
 	{ "mfussenegger/nvim-dap-python" },
 	{
 		"rcarriga/nvim-dap-ui",
@@ -121,13 +122,14 @@ require("lazy").setup({
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
-			"nvim-neotest/neotest-go",
+			"fredrikaverpil/neotest-golang",
 			"nvim-neotest/neotest-python",
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
 			"leoluz/nvim-dap-go",
+			"nvim-neotest/neotest-plenary",
+			"nvim-neotest/neotest-vim-test",
 		},
 		config = function()
 			-- get neotest namespace (api call creates or returns namespace)
@@ -143,10 +145,14 @@ require("lazy").setup({
 				},
 			}, neotest_ns)
 			require("neotest").setup({
-				-- your neotest config here
+				log_level = vim.log.levels.DEBUG,
 				adapters = {
-					require("neotest-go"), -- Registration
 					require("neotest-python"),
+					require("neotest-golang"),
+					-- require("neotest-plenary"),
+					-- require("neotest-vim-test")({
+					-- 	ignore_file_types = { "python", "vim", "lua" },
+					-- }),
 				},
 			})
 		end,
