@@ -173,4 +173,5 @@ require("lazy").setup({
 	require("llm.avante"),
 	require("llm.mcphub"),
 	require("llm.code-companion"),
+	require("llm.sidek"),
 })
