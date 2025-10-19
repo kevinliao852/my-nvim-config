@@ -46,10 +46,9 @@ require("lazy").setup({
 	{ "BurntSushi/ripgrep" }, -- for live_grep
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
 		branch = "main",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
+		build = ":TSUpdate",
 	},
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	-- view
