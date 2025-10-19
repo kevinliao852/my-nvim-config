@@ -12,6 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	change_detection = { notify = false },
+	{ import = "llm" },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -170,8 +172,4 @@ require("lazy").setup({
 			require("fidget").setup()
 		end,
 	},
-	require("llm.avante"),
-	require("llm.mcphub"),
-	require("llm.code-companion"),
-	require("llm.sidek"),
 })
