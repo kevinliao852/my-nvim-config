@@ -1,28 +1,3 @@
--- keymap
-require("settings")
--- packer
-require("lazyvim")
-
--- lsp related
-require("navic")
-require("lsp")
-require("nullls")
-require("treesitter")
-
--- tools
-require("gitsigns_p")
-require("autopairs")
-require("undotree")
-require("webdevicons")
-require("nvim-scrollbar")
-require("nvim-indent-blankline")
-require("lua-snip")
-
-require("nvim-dap-ui-setting")
-require("go-dap-setting")
-require("py-dap-setting")
-require("v-dap-text")
-require("lualine-setting")
-
--- cmd
 require("cmd")
+require("keymaps")
+require("lazyvim")
