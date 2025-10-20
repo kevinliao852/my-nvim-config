@@ -76,7 +76,7 @@ end, opts)
 
 -- Context
 
-keymap("n", "<space>`", ":TSContextToggle<cr>", opts)
+keymap("n", "<space>`", ":TSContext toggle<cr>", opts)
 
 -- SymbolsOutline
 
