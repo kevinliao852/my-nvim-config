@@ -1,6 +1,6 @@
 return {
 	"mbbill/undotree",
-	lazy = true,
+	lazy = false,
 	cmd = "UndotreeToggle",
 	config = function()
 		local CACHE_DIR = vim.env.HOME .. "/.cache/nvim"
