@@ -1,28 +1,7 @@
--- set meta
-vim.g.loaded = 1
--- vim.g.loaded_netrwPlugin = 1
--- vim.o.term = "xterm-256color"
-vim.o.relativenumber = true
-vim.o.number = true
-vim.o.autoindent = true
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.expandtab = true
-vim.o.cursorline = true
-vim.o.spell = true
-vim.g.mapleader = ";"
-vim.g.undotree_WindowLayout = 4
-vim.opt.termguicolors = true
-vim.opt.mouse = ""
-vim.g.rainbow_active = 1
-vim.opt.colorcolumn = "80"
-
 -- set key bindings
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local opts_noslient = { noremap = true }
-local bufopts = { noremap = true, silent = true }
 
 -- Vim Basic
 
@@ -78,26 +57,26 @@ keymap("n", "<leader><C-t>", "<cmd>Neotree toggle source=buffers float<cr>", opt
 keymap("v", "<space>qf", "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 vim.keymap.set("n", "zj", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "zk", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 vim.keymap.set("n", "<space>f", function()
 	vim.lsp.buf.format({ async = true })
-end, bufopts)
-vim.keymap.set({ "n", "v" }, "zi", vim.lsp.buf.code_action, bufopts)
+end, opts)
+vim.keymap.set({ "n", "v" }, "zi", vim.lsp.buf.code_action, opts)
 vim.keymap.set("n", "<space>wl", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, bufopts)
+end, opts)
 
 -- Context
 
-keymap("n", "<space>`", ":TSContextToggle<cr>", opts)
+keymap("n", "<space>`", ":TSContext toggle<cr>", opts)
 
 -- SymbolsOutline
 
