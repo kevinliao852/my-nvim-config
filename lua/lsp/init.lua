@@ -244,7 +244,7 @@ return {
 			})
 			vim.api.nvim_set_keymap(
 				"n",
-				"<leader>xx",
+				"<leader>xy",
 				"<cmd>lua vim.lsp.codelens.run()<CR>",
 				{ noremap = true, silent = true }
 			)
