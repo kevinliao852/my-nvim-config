@@ -1,6 +1,30 @@
+-- set meta
+vim.g.loaded = 1
+vim.diagnostic.config({
+	virtual_text = {
+		update_in_insert = true,
+	},
+})
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.o.term = "xterm-256color"
+vim.o.relativenumber = true
+vim.o.number = true
+vim.o.autoindent = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.expandtab = true
+vim.o.cursorline = true
+vim.o.spell = true
+vim.g.mapleader = ";"
+vim.g.undotree_WindowLayout = 4
+vim.opt.termguicolors = true
+vim.opt.mouse = ""
+vim.g.rainbow_active = 1
+vim.opt.colorcolumn = "80"
+
 -- set details
 vim.cmd("set scrolloff=2")
-vim.cmd("colorscheme kanagawa-wave")
 vim.cmd("hi GitSignsCurrentLineBlame guifg=#456456")
 vim.cmd("set encoding=utf-8")
 vim.cmd("set nocompatible")
