@@ -251,11 +251,6 @@ return {
 
 			require("luasnip.loaders.from_vscode").load()
 			require("luasnip").filetype_extend("typescript", { "javascript" })
-
-			local venv = vim.fn.getcwd() .. "/.venv/bin/python"
-			if vim.fn.executable(venv) == 1 then
-				vim.g.python3_host_prog = venv
-			end
 		end,
 	},
 }
