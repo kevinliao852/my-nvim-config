@@ -169,6 +169,10 @@ vim.keymap.set("n", "<leader>tp", function()
 	require("neotest").output_panel.toggle()
 end, { desc = "Toggle test output panel" })
 
+vim.keymap.set("n", "<leader>tv", function()
+	require("neotest").summary.toggle()
+end, { desc = "Toggle test overall view" })
+
 -- legacy
 vim.keymap.set("n", "<F5>", function()
 	require("dap").continue()
