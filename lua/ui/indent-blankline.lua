@@ -4,7 +4,7 @@ return {
 		main = "ibl",
 		---@module "ibl"
 		---@type ibl.config
-		setup = function()
+		config = function()
 			vim.opt.list = true
 			vim.opt.listchars:append("tab:··")
 
