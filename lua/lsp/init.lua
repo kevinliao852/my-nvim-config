@@ -66,7 +66,7 @@ return {
 			{ "nvimtools/none-ls.nvim" },
 			{ "nvimdev/lspsaga.nvim" },
 			{ "onsails/lspkind.nvim" },
-			{ "mfussenegger/nvim-jdtls" },
+			-- { "mfussenegger/nvim-jdtls" },
 		},
 
 		config = function()
