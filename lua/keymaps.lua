@@ -145,6 +145,11 @@ vim.keymap.set("n", "<leader>tn", function()
 	require("neotest").run.run()
 end, { desc = "Run nearest test" })
 
+-- Keymap to toggle neotest test summary/overview
+vim.keymap.set('n', '<leader>tz', function()
+  require('neotest').summary.toggle()
+end, { desc = 'Toggle Neotest Test Files Overview' })
+
 vim.keymap.set("n", "<leader>tt", function()
 	require("neotest").run.run(vim.fn.expand("%"))
 end, { desc = "Run test file" })

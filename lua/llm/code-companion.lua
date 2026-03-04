@@ -21,10 +21,21 @@ return {
 					adapter = "openai",
 				},
 				inline = {
-					adapter = "anthropic",
+					adapter = "openai",
 				},
 				cmd = {
-					adapter = "deepseek",
+					adapter = "openai",
+				},
+			},
+			adapters = {
+				acp = {
+					codex = function()
+						return require("codecompanion.adapters").extend("codex", {
+							defaults = {
+								auth_method = "chatgpt", -- "openai-api-key"|"codex-api-key"|"chatgpt"
+							},
+						})
+					end,
 				},
 			},
 			http = {
