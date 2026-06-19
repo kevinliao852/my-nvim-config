@@ -6,6 +6,32 @@ return {
 	},
 	config = function()
 		require("codecompanion").setup({
+			prompt_library = {
+				["Simple Explain"] = {
+					interaction = "chat",
+					description = "Explain selected code in plain language",
+					opts = {
+						alias = "simple-explain",
+						auto_submit = true,
+						is_slash_cmd = true,
+						index = 2,
+						modes = { "v" },
+						stop_context_insertion = true,
+					},
+					prompts = {
+						{
+							role = "system",
+							content = "Explain the selected code clearly and concisely in plain language. Focus on what it does, how it works, and any important behavior or edge cases. Avoid jargon unless it is necessary.",
+						},
+						{
+							role = "user",
+							content = function(context)
+								return "Please explain this code from buffer " .. context.bufnr .. ":\n\n```" .. context.filetype .. "\n" .. context.code .. "\n```"
+							end,
+						},
+					},
+				},
+			},
 			extensions = {
 				-- mcphub = {
 				-- 	callback = "mcphub.extensions.codecompanion",
