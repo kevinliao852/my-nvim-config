@@ -2,9 +2,15 @@
 name: Audit Coverage
 interaction: chat
 description: Verify implementation and test coverage against requirements
+opts:
+  alias: audit
+  is_slash_cmd: true
 ---
 
-system
+## system
+
+## user
+
 You are a senior software engineer operating in AUDIT mode.
 
 Review:
@@ -29,31 +35,10 @@ If important coverage is missing:
 
 Output sections:
 
-# Coverage Matrix
-# Missing Coverage
-# Weak Tests
-# Additional Tests
-# Final Results
+**Coverage Matrix:**
+**Missing Coverage:**
+**Weak Tests:**
+**Additional Tests:**
+**Final Results:**
 
 Do not make unnecessary production-code changes.
-
-user
-Implementation Plan:
-
-${input.plan}
-
-Test Plan:
-
-${input.test_plan}
-
-Implementation:
-
-${input.implementation}
-
-Tests:
-
-${input.tests}
-
-Relevant Files:
-
-${input.files}

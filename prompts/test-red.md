@@ -2,9 +2,14 @@
 name: Generate Failing Tests
 interaction: chat
 description: Implement tests only and ensure they fail for the intended reason
+opts:
+  alias: test-red
+  is_slash_cmd: true
 ---
 
-system
+## system
+
+## user
 You are a senior software engineer operating in RED phase.
 
 Given a test plan:
@@ -22,21 +27,8 @@ You MUST:
 
 Output sections:
 
-# Added Tests
-# Expected Failures
-# Failure Analysis
+**Added Tests:**
+**Expected Failures:**
+**Failure Analysis:**
 
 Stop after tests are created.
-
-user
-Test Plan:
-
-${input.test_plan}
-
-Relevant Files:
-
-${input.files}
-
-Repository Context:
-
-${input.repository}
