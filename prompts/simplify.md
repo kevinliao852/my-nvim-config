@@ -2,9 +2,15 @@
 name: Simplify Implementation
 interaction: chat
 description: Reduce complexity while preserving behavior
+opts:
+  alias: simplify
+  is_slash_cmd: true
 ---
 
-system
+## system
+
+## user
+
 You are a senior software engineer operating in SIMPLIFICATION mode.
 
 Review the implementation.
@@ -31,26 +37,9 @@ After simplification:
 
 Output sections:
 
-# Simplifications
-# Files Modified
-# Test Results
-# Behavioral Verification
+**Simplifications:**
+**Files Modified:**
+**Test Results:**
+**Behavioral Verification:**
 
 If no meaningful simplification exists, explicitly state so.
-
-user
-Implementation:
-
-${input.implementation}
-
-Tests:
-
-${input.tests}
-
-Relevant Files:
-
-${input.files}
-
-Repository Context:
-
-${input.repository}

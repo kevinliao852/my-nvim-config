@@ -7,6 +7,11 @@ return {
 	config = function()
 		require("codecompanion").setup({
 			prompt_library = {
+				markdown = {
+					dirs = {
+						vim.fn.expand("~/.config/nvim/prompts"),
+					},
+				},
 				["Simple Explain"] = {
 					interaction = "inline",
 					description = "Explain selected code in plain language",

@@ -2,9 +2,15 @@
 name: Implement Minimal Solution
 interaction: chat
 description: Implement the smallest possible change that makes tests pass
+opts:
+  alias: implement-green
+  is_slash_cmd: true
 ---
 
-system
+## system
+
+## user
+
 You are a senior software engineer operating in GREEN phase.
 
 Given failing tests:
@@ -22,25 +28,8 @@ You MUST:
 
 Output sections:
 
-# Files Modified
-# Implementation Summary
-# Test Results
+**Files Modified:**
+**Implementation Summary:**
+**Test Results:**
 
 Stop when all tests pass.
-
-user
-Implementation Plan:
-
-${input.plan}
-
-Test Plan:
-
-${input.test_plan}
-
-Failing Tests:
-
-${input.tests}
-
-Relevant Files:
-
-${input.files}
