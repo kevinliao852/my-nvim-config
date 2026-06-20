@@ -26,7 +26,13 @@ return {
 						{
 							role = "user",
 							content = function(context)
-								return "Please explain this code from buffer " .. context.bufnr .. ":\n\n```" .. context.filetype .. "\n" .. context.code .. "\n```"
+								return "Please explain this code from buffer "
+									.. context.bufnr
+									.. ":\n\n```"
+									.. context.filetype
+									.. "\n"
+									.. context.code
+									.. "\n```"
 							end,
 						},
 					},
