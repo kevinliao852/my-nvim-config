@@ -5,7 +5,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "cmp-nvim-lsp-signature-help": { "branch": "main", "commit": "fd3e882e56956675c620898bf1ffcf4fcbe7ec84" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
-  "codecompanion.nvim": { "branch": "main", "commit": "52e44e0f048be51a2892989de0d86e79f70aecad" },
+  "codecompanion.nvim": { "branch": "main", "commit": "e47abc3bb6ce673fc66041400c2070ad73a62204" },
   "copilot.vim": { "branch": "release", "commit": "a12fd5672110c8aa7e3c8419e28c96943ca179be" },
   "fastapi-snippet": { "branch": "main", "commit": "2b7cf0e6e232d12ed168b533e82cf5476a6c464d" },
   "fidget.nvim": { "branch": "main", "commit": "82404b196e73a00b1727a91903beef5ddc319d22" },
