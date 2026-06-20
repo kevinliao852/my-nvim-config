@@ -45,15 +45,10 @@ return {
 						auto_submit = true,
 						is_slash_cmd = true,
 						index = 3,
-						adapter = {
-							name = "codex",
-						},
-						user_prompt = true,
-						stop_context_insertion = true,
 					},
 					prompts = {
 						{
-							role = "system",
+							role = "user",
 							content = "Explain the user's text using a clear text diagram first, then a concise explanation. Use plain ASCII characters only. Show the flow, key data structures, or control paths when helpful. Keep the diagram simple and easy to scan.",
 						},
 					},
