@@ -1,16 +1,23 @@
 name: Review style
+
 on:
   - pull_request
+
 jobs:
   style-check:
+    timeout-minutes: 3
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - name: Check out style
-        uses: JohnnyMorganz/stylua-action@v4
+        uses: JohnnyMorganz/stylua-action@76fd70c03e6340ceaf673366712db9b20560b402 # v5.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          version: v0.20.0
+          version: v2.5.2
           args: --check .
